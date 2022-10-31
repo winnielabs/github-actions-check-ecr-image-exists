@@ -1,7 +1,8 @@
 FROM golang:1.19.2-alpine
 
-COPY entrypoint.sh /entrypoint.sh
+WORKDIR /usr/src/app
 
-RUN ["chmod", "+x", "/entrypoint.sh"]
+COPY . .
+RUN ["chmod", "+x", "entrypoint.sh"]
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
